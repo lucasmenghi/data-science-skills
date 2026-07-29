@@ -1,0 +1,16 @@
+{
+  "category": "01-business-understanding",
+  "version": "0.1.0",
+  "skills": [
+    "problem-framing",
+    "target-definition",
+    "business-hypothesis-builder",
+    "success-criteria-definition"
+  ],
+  "recommended_sequence": [
+    "problem-framing",
+    "target-definition",
+    "business-hypothesis-builder",
+    "success-criteria-definition"
+  ]
+}
