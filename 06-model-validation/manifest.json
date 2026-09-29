@@ -1,0 +1,20 @@
+{
+  "category": "06-model-validation",
+  "version": "0.2.0",
+  "skills": [
+    "metric-selection",
+    "threshold-optimization",
+    "lift-analysis",
+    "calibration-analysis",
+    "oot-validation",
+    "model-review"
+  ],
+  "recommended_sequence": [
+    "metric-selection",
+    "threshold-optimization",
+    "lift-analysis",
+    "calibration-analysis",
+    "oot-validation",
+    "model-review"
+  ]
+}

@@ -1,40 +1,42 @@
 # Data Science Skills
 
-Biblioteca de métodos de Data Science e agentes de aprendizagem em português. O objetivo é apoiar decisões de projeto e desenvolver competência demonstrável em ciência de dados e IA.
+**68 skills em 13 temas para apoiar o trabalho diário de um cientista de dados, explicando as decisões e produzindo entregas verificáveis.**
 
-**Preparando uma entrevista? [Comece aqui](learning/START-HERE.md).** Há uma [trilha de 24–72 horas](learning/emergency-plan.md) e uma [formação por competências](learning/curriculum.md).
+A biblioteca cobre entendimento do negócio, descoberta, preparação, features, modelos, validação, interpretabilidade, experimentação, deployment, monitoramento, impacto, documentação e assistentes. Python e SQL são a base; Databricks/PySpark entram quando o ambiente ou o volume justificam.
 
-## O que existe
+**[Comece pelo guia de uso](QUICKSTART.md)** ou consulte o [catálogo completo](STRUCTURE.md).
 
-| Categoria | Implementado |
-|---|---|
-| [01-business-understanding](01-business-understanding/README.md) | Framing, target, hipóteses e critérios de sucesso |
-| [13-ai-assistants](13-ai-assistants/README.md) | Mentor, fundamentos, modelagem, IA aplicada, revisor, entrevistador e comunicação |
-
-São 11 skills canônicas. As categorias 02 a 12 continuam planejadas; não são funcionalidades disponíveis.
-
-## Usar os agentes
-
-Abra este repositório no Codex e envie:
+## Uma entrada para o trabalho diário
 
 ```text
-Use $ds-mentor. Quero me preparar para uma entrevista de Data Science com foco em IA.
-Comece pelo diagnóstico, uma pergunta por vez, e espere minha resposta.
+Use $ds-workbench. Quero revisar este projeto de Data Science.
+Inspecione os artefatos disponíveis, identifique as decisões mais importantes,
+execute as verificações possíveis e explique o que encontrou e por que importa.
 ```
 
-Se a descoberta automática não estiver disponível, peça para ler `13-ai-assistants/ds-mentor/SKILL.md`. As instruções também podem ser lidas por outros assistentes com acesso aos arquivos; não houve teste de integração com cada produto.
+O assistente escolhe as skills necessárias ao pedido, trabalha nos artefatos autorizados e entrega recomendação, evidência, alternativas e limitações. Ele não impõe sabatina quando o objetivo é uma entrega profissional.
 
-Os agentes são skills que orientam papéis na conversa. Não há um serviço de agentes rodando em segundo plano. O material funciona sem contratar APIs adicionais. Para usar fora desta pasta, mantenha o repositório completo e seus links relativos.
+## Profundidade e estrutura
 
-## Como o estudo funciona
+- Cada skill de trabalho tem processo próprio, critérios condicionais, falhas comuns e caso sintético.
+- O [aprofundamento metodológico](guides/method-depth.md) trata estimandos, dependência, leakage, seleção, utilidade, interpretação, causalidade e operação.
+- O [protocolo de decisão](guides/decision-protocol.md) orienta explicar observação, consequência e verificação sem inventar resultados.
+- Os [casos integrados](examples/workflows/retention-decision.md) mostram como combinar etapas; não é preciso rodar todas em cada tarefa.
+- Cinco utilitários determinísticos apoiam framing, janelas, priorização, critérios e avaliação de políticas de threshold. Não substituem julgamento metodológico.
 
-Diagnóstico por respostas → prioridade conforme prazo → exercício → feedback → nova tentativa independente → registro local. Notas sem evidência ficam como não avaliadas. O programa distingue domínio conceitual, aplicação, julgamento e comunicação, sem prometer aprovação ou atribuir senioridade por uma média.
+Há 61 skills de trabalho, incluindo o coordenador, e 7 agentes de aprendizagem. Os 60 nomes do catálogo original estão implementados. O conteúdo é uma biblioteca de instruções e referências; não é um serviço de agentes executando permanentemente.
 
-Os PDFs fornecidos orientaram o [mapa de fontes](learning/sources.md); os originais não são redistribuídos. Há correções metodológicas e complementos para IA aplicada. Este projeto não é material oficial de recrutamento de nenhuma empresa.
+## Aprendizagem e entrevista
 
-## Estrutura e contribuição
+Para estudar com tentativa, feedback e progresso, use `$ds-mentor` e [o guia de estudo](learning/START-HERE.md). O programa de entrevista e os registros locais foram preservados. Contexto pessoal fica em `private/`, ignorado pelo Git.
 
-Veja [STRUCTURE.md](STRUCTURE.md), [AGENTS.md](AGENTS.md) e [CLAUDE.md](CLAUDE.md). Preserve as skills existentes e mantenha as referências verificáveis.
+## Uso no Codex e outros assistentes
+
+Abra a pasta deste repositório como projeto. As entradas `.agents/skills/` apontam para as instruções canônicas nas categorias. Se a skill não aparecer, peça ao assistente para ler o `SKILL.md` pelo caminho. Mantenha o repositório completo, pois há referências relativas compartilhadas. Outros assistentes podem ler as instruções; integração com cada produto não foi testada.
+
+## Verificação e manutenção
+
+Python 3.11+ para os utilitários; PyYAML é necessário apenas para a validação do repositório.
 
 ```sh
 python -m pip install -r requirements-dev.txt
@@ -43,4 +45,8 @@ python validate_skills.py
 python -m unittest discover -s tests -v
 ```
 
-As entradas `.agents/skills/` são geradas; as instruções canônicas ficam nas categorias. `private/` guarda contexto e sessões pessoais e é ignorada pelo Git. Não inclua dados de clientes, credenciais ou materiais de terceiros sem autorização.
+Consulte o [escopo da verificação realizada](guides/validation-status.md). Leia [AGENTS.md](AGENTS.md) para manutenção. O gerador protege entradas manuais e rejeita nomes duplicados; ele não apaga ponteiros órfãos silenciosamente. A validação estrutural não comprova a eficácia de todas as skills em trabalho real. Exemplos e testes locais não comprovam integração em Databricks ou serviço externo.
+
+## Fontes e dados
+
+[Fontes primárias](guides/sources.md) apoiam consulta metodológica e de APIs. Materiais de estudo fornecidos pelo usuário têm [atribuição e ressalvas](learning/sources.md); PDFs originais não são redistribuídos. Não incluir dados de clientes, credenciais, histórico pessoal ou evidência confidencial em commits.

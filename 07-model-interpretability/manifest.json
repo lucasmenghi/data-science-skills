@@ -1,0 +1,16 @@
+{
+  "category": "07-model-interpretability",
+  "version": "0.2.0",
+  "skills": [
+    "feature-importance",
+    "shap-analysis",
+    "partial-dependence",
+    "business-translation"
+  ],
+  "recommended_sequence": [
+    "feature-importance",
+    "shap-analysis",
+    "partial-dependence",
+    "business-translation"
+  ]
+}

@@ -1,116 +1,76 @@
 ---
 name: target-definition
-description: Define and validate the target variable for a supervised machine learning problem.
-version: 0.1.0
-category: business-understanding
-language: pt-BR
+description: Definir alvo supervisionado, elegibilidade e janelas temporais sem confundir censura com ausência de evento.
+metadata:
+  version: "0.2.0"
+  category: business-understanding
+  language: pt-BR
 ---
 
 # Purpose
 
-Definir de forma operacional, temporal e reproduzível a variável target de um problema supervisionado.
+Definir alvo supervisionado, elegibilidade e janelas temporais sem confundir censura com ausência de evento.
 
 # When to use
 
-- Após o enquadramento inicial do problema.
-- Antes da construção da base analítica.
-- Quando existirem diferentes interpretações para o evento positivo.
-- Quando houver risco de censura, atraso de informação ou ambiguidade no label.
+Quando a tarefa requer esta decisão dentro de entendimento do negócio. Trabalhar no escopo solicitado e entregar resultado utilizável; não transformar uma demanda de trabalho em sabatina. No modo explicativo, mostrar o porquê das escolhas junto do resultado.
 
 # Inputs
 
-- Objetivo de negócio.
-- Unidade de análise.
-- Evento positivo esperado.
-- Momento da previsão.
-- Janela de observação.
-- Janela de performance ou resposta.
-- Fontes de dados utilizadas para construir o label.
+Evento-alvo; entity_id; tempo de decisão; datas de eventos e disponibilidade; cobertura até uma data de corte.
+
+Usar o contexto já fornecido. Se faltar dado que altera materialmente a decisão, perguntar de forma focada; continuar a análise independente com premissas marcadas. Sem dados acessíveis, entregar desenho e verificações propostas, nunca resultados simulados como observados.
 
 # Process
 
-1. Definir exatamente o que representa o target positivo e negativo.
-2. Definir a granularidade do label.
-3. Definir o instante de referência da previsão.
-4. Separar janela de observação, gap temporal e janela de performance.
-5. Mapear casos ambíguos, censurados ou ainda não maduros.
-6. Avaliar disponibilidade e atraso das fontes utilizadas no label.
-7. Verificar se o target pode ser reproduzido historicamente.
-8. Avaliar possíveis proxies e riscos de circularidade.
-9. Documentar regras de exclusão, elegibilidade e tratamento de exceções.
-10. Propor testes de qualidade e estabilidade do label.
+1. Especificar unidade e evento positivo observável, com regras de reversão, repetição e eventos concorrentes. Distinguir status atual de evento futuro.
+2. Fixar convenções de borda das janelas de observação, gap e desfecho. Especificar fuso, data de referência e se o dia corrente já fechou.
+3. Construir elegibilidade apenas com fatos disponíveis na decisão. Calcular a primeira data em que o rótulo se torna maduro incluindo atraso de publicação.
+4. Representar resultados ainda não observáveis como censurados ou pendentes, nunca negativos por conveniência. Avaliar survival quando tempo até evento e censura forem centrais.
+5. Validar casos manuais nas bordas, múltiplos contratos e eventos tardios. Comparar taxas por safra antes de liberar a tabela de rótulos.
+6. Explicar ao usuário a decisão, a alternativa descartada e a evidência que mudaria a recomendação. Registrar o que foi executado, o que é hipótese e o próximo passo verificável.
+
+Consultar [critérios e trade-offs](references/decision-guide.md) para comparar alternativas e [caso trabalhado](examples/worked-case.md) para a profundidade esperada. Ler somente o apoio relevante, não todo o catálogo.
 
 # Output contract
 
-A resposta final deve ser estruturada com as seguintes seções:
+Contrato do alvo; SQL/pseudocódigo de rotulagem; calendário de maturação; tabela de casos de borda.
 
-- `Target Name`
-- `Business Definition`
-- `Positive Class`
-- `Negative Class`
-- `Unit of Analysis`
-- `Reference Date`
-- `Observation Window`
-- `Gap Window`
-- `Performance Window`
-- `Eligibility Rules`
-- `Exclusion Rules`
-- `Ambiguous Cases`
-- `Censoring Rules`
-- `Data Sources`
-- `Data Availability`
-- `Label Quality Tests`
-- `Risks and Limitations`
-
-Quando uma informação não estiver disponível:
-
-1. declare explicitamente a lacuna;
-2. registre uma premissa temporária quando for seguro;
-3. não invente regras de negócio;
-4. destaque o impacto da incerteza na recomendação.
+Organizar a resposta em `Decisão recomendada`, `Evidências e execução`, `Alternativas e critérios`, `Limitações` e `Próximo passo`. Adaptar o tamanho à tarefa. Para cada achado relevante, explicar o significado e a consequência prática; anexar consultas/código ou localização de evidências quando houver. Números devem trazer unidade, população e período. Não esconder pendências em uma conclusão definitiva.
 
 # Common mistakes
 
-- Definir target apenas como o nome de uma coluna.
-- Usar informações posteriores ao momento da previsão.
-- Ignorar casos ainda não maduros.
-- Misturar eventos com granularidades diferentes.
-- Não documentar regras de elegibilidade.
-- Criar um target que não possa ser reproduzido historicamente.
+Rotular ausência de dado como negativo; usar evento futuro na elegibilidade.
+
+Separar target válido de target útil: mesmo bem rotulado, pode chegar tarde para a ação. Janelas e latência são decisões do produto.
 
 # Quality checklist
 
-- [ ] Classe positiva e negativa estão definidas.
-- [ ] A granularidade está explícita.
-- [ ] A data de referência está definida.
-- [ ] As janelas temporais estão separadas.
-- [ ] Casos censurados foram tratados.
-- [ ] Regras de elegibilidade estão documentadas.
-- [ ] A disponibilidade histórica das fontes foi validada.
-- [ ] O label pode ser reproduzido.
-- [ ] Testes de qualidade foram definidos.
+- [ ] Entradas, unidade e população necessárias estão definidas ou marcadas como pendentes.
+- [ ] A decisão segue os critérios específicos da referência e explicita a alternativa principal.
+- [ ] Evidência observada, hipótese e execução proposta estão separadas.
+- [ ] O caso-limite relevante foi verificado ou consta como limitação.
+- [ ] O próximo passo tem condição de conclusão verificável.
 
 # Tool usage
 
-- Use os scripts da pasta `scripts/` apenas para validações determinísticas ou cálculos auxiliares.
-- Use os arquivos em `references/` para interpretar conceitos, critérios e exemplos.
-- Use os templates em `assets/` para produzir saídas consistentes.
-- Não trate um template como regra de negócio definitiva.
+Preferir Python e SQL; usar [orientações de ambiente](../../guides/python-sql-databricks.md) para adaptar a Databricks/PySpark sem coletar grandes tabelas no driver. Inspecionar schema e versões reais antes de gerar código dependente de APIs. Consultar [fontes primárias](../../guides/sources.md) quando o método ou a API exigir verificação. Executar apenas dentro do escopo e acesso disponíveis; relatar comandos e resultados reais. Um exemplo sintético não comprova resultado no dataset do usuário.
 
 # Boundaries
 
-Esta skill não deve:
-
-- treinar modelos;
-- selecionar algoritmos de forma definitiva sem contexto;
-- executar engenharia de features;
-- substituir validação do stakeholder;
-- assumir que Machine Learning é obrigatoriamente a melhor solução.
+Não inventar regras, dados, resultados, significância ou aprovação. Não ampliar o pedido para mutações externas, publicação ou deployment sem autorização correspondente. Não usar exemplos como política obrigatória. Explicação descritiva/preditiva não estabelece causalidade.
 
 # Example invocation
 
-```text
-Use a skill `target-definition` para estruturar esta solicitação:
+"Use $target-definition no meu projeto. Explique os critérios de decisão, proponha ou execute as verificações possíveis e separe resultados de premissas."
 
-[descreva aqui o problema ou contexto]
-```
+## Recursos específicos
+
+- [temporal-windows.md](references/temporal-windows.md): recurso específico já existente; consultar quando necessário.
+- [target-definition-template.md](assets/target-definition-template.md): recurso específico já existente; consultar quando necessário.
+- [churn-30d-example.md](examples/churn-30d-example.md): recurso específico já existente; consultar quando necessário.
+- [target_definition.py](scripts/target_definition.py): recurso específico já existente; consultar quando necessário.
+
+## Apoio transversal
+
+Para decisões que exigem justificativa estatística ou operacional, consultar o trecho relevante do [aprofundamento metodológico](../../guides/method-depth.md). Para organizar evidências e comunicar a recomendação, usar o [protocolo de decisão](../../guides/decision-protocol.md). Não carregar ambos por obrigação em tarefas simples.

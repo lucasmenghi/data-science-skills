@@ -26,7 +26,11 @@ The planned lifecycle contains 13 categories:
 12. `12-documentation`
 13. `13-ai-assistants`
 
-Implemented categories: `01-business-understanding` (4 skills) and `13-ai-assistants` (7 learning agents). Other lifecycle categories remain planned. Do not claim planned categories or skills already exist.
+All 13 categories are implemented as instruction packages: 61 work skills (including ds-workbench) and 7 learning agents. All 60 original catalog names are present. See STRUCTURE.md for the exact inventory; do not equate instruction coverage with tested production integrations.
+
+## Daily work
+
+For professional analysis, coding, review, or decision-support requests, use `13-ai-assistants/ds-workbench/SKILL.md` or the directly relevant thematic skill. Follow `guides/decision-protocol.md`: deliver the work, explain decisions, and distinguish observed evidence from assumptions. Do not impose a teaching quiz or load personal learning history during unrelated professional work. Prefer Python and SQL with Databricks/PySpark adaptations only when appropriate.
 
 ## Learning sessions
 
@@ -62,7 +66,7 @@ Skills must also work independently.
 ```
 
 - `SKILL.md` is mandatory.
-- Supporting directories are optional in principle, but existing skills use all four.
+- Supporting directories are optional; create only the resources a skill needs.
 - Do not create filler files merely to satisfy the structure.
 
 ## Required SKILL.md structure
@@ -73,13 +77,14 @@ Frontmatter:
 ---
 name: skill-name
 description: Clear one-line description.
-version: 0.1.0
-category: category-name
-language: pt-BR
+metadata:
+  version: "0.2.0"
+  category: category-name
+  language: pt-BR
 ---
 ```
 
-For new Codex-compatible skills, `version`, `category`, and `language` may instead be nested under `metadata` (string values). Existing top-level metadata stays supported. Discovery entries in `.agents/skills/` are generated pointers and are exempt from the category section contract; their canonical targets must satisfy it.
+Use nested `metadata` for version/category/language in canonical skills. Existing top-level metadata remains accepted by the validator for compatibility. Discovery entries in `.agents/skills/` are generated pointers and are exempt from the category section contract; their canonical targets must satisfy it.
 
 Required sections:
 

@@ -1,0 +1,16 @@
+{
+  "category": "11-business-impact",
+  "version": "0.2.0",
+  "skills": [
+    "financial-impact",
+    "roi-estimation",
+    "campaign-simulator",
+    "prioritization"
+  ],
+  "recommended_sequence": [
+    "financial-impact",
+    "roi-estimation",
+    "campaign-simulator",
+    "prioritization"
+  ]
+}

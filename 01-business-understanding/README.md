@@ -1,41 +1,12 @@
-# 01 — Business Understanding
+# 01-business-understanding — Entendimento do negócio
 
-This category contains reusable skills for converting business needs into well-defined Data Science initiatives.
+Skills de trabalho com instruções, critérios de decisão e casos sintéticos. Cada skill pode ser usada isoladamente.
 
-## Included skills
+| Skill | Quando usar |
+|---|---|
+| [problem-framing](problem-framing/SKILL.md) | Transformar uma demanda de negócio em decisão analítica, comparando regra, análise, experimento e ML. |
+| [target-definition](target-definition/SKILL.md) | Definir alvo supervisionado, elegibilidade e janelas temporais sem confundir censura com ausência de evento. |
+| [business-hypothesis-builder](business-hypothesis-builder/SKILL.md) | Formular e priorizar hipóteses descritivas, preditivas e causais com desenho de verificação adequado. |
+| [success-criteria-definition](success-criteria-definition/SKILL.md) | Definir métricas e critérios de aceitação de negócio, modelo e operação com direção e incerteza explícitas. |
 
-1. `problem-framing`
-2. `target-definition`
-3. `business-hypothesis-builder`
-4. `success-criteria-definition`
-
-## Recommended order
-
-```text
-problem-framing
-    ↓
-target-definition
-    ↓
-business-hypothesis-builder
-    ↓
-success-criteria-definition
-```
-
-Each skill may also be used independently.
-
-## Folder contract
-
-```text
-skill-name/
-├── SKILL.md
-├── assets/
-├── references/
-├── scripts/
-└── examples/
-```
-
-- `SKILL.md`: behavioral instructions and output contract.
-- `assets/`: reusable output templates.
-- `references/`: stable methodological guidance.
-- `scripts/`: deterministic utilities and validation helpers.
-- `examples/`: realistic examples of expected usage and output.
+Comece pelo [guia de trabalho](../QUICKSTART.md). Métodos e execução devem respeitar a disponibilidade real de dados e o objetivo do usuário. Não é necessário percorrer toda a categoria em cada tarefa.

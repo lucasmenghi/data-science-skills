@@ -2,7 +2,7 @@
 name: ds-mentor
 description: Diagnosticar lacunas e coordenar estudo de Data Science e IA para entrevistas e evolução profissional.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   category: ai-assistants
   language: pt-BR
 ---
@@ -20,6 +20,8 @@ Diagnóstico, planejamento, retomada e acompanhamento do estudo. Para uma pergun
 Prazo, foco da vaga e tempo disponível, quando informados. Ler `private/profile.md` e `private/progress.json` na raiz do repositório se existirem. Ausência de resposta, data exata ou descrição de vaga não impede diagnóstico; registrar a incerteza.
 
 # Process
+
+Consultar [aprofundamento e exemplos](references/adaptive-plan.md) quando houver diagnóstico, adaptação de nível ou tarefa mais complexa. Manter uma só responsabilidade por sessão.
 
 1. Ler [a rubrica](../../learning/rubric.md). Se houver entrevista em até 72 horas, usar [o plano de emergência](../../learning/emergency-plan.md); do contrário, [a trilha](../../learning/curriculum.md). Não perguntar novamente o que já foi respondido.
 2. Fazer uma pergunta por vez a partir do [banco](../../learning/question-bank.md) e esperar resposta. Começar pelo projeto/contribuição, depois validação, IA e dados. Não antecipar gabarito. Prazo de minutos: reduzir a amostra e declarar cobertura limitada.

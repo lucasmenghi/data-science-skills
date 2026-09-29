@@ -80,7 +80,7 @@ def validate(root: Path) -> list[str]:
             except (OSError, ValueError, yaml.YAMLError) as exc:
                 errors.append(f"{path.relative_to(root)}: {exc}")
     # Restrict traversal to maintained public artifacts; never parse personal study notes.
-    public_roots = categories + [root / "learning", root / "scripts", root / "tests", root / ".agents" / "skills"]
+    public_roots = categories + [root / "learning", root / "guides", root / "examples", root / "scripts", root / "tests", root / ".agents" / "skills"]
     files = list(root.glob("*.py"))
     for folder in public_roots:
         if folder.exists():
@@ -103,7 +103,7 @@ def validate(root: Path) -> list[str]:
                         errors.append(f"{path.relative_to(root)}: broken local link {link}")
         except (OSError, ValueError, SyntaxError, yaml.YAMLError) as exc:
             errors.append(f"{path.relative_to(root)}: {exc}")
-    if (root / "13-ai-assistants").exists():
+    if categories:
         try:
             stale = build_entries(root, check=True)
             if stale:

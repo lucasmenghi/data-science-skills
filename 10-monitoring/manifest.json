@@ -1,0 +1,16 @@
+{
+  "category": "10-monitoring",
+  "version": "0.2.0",
+  "skills": [
+    "data-drift",
+    "concept-drift",
+    "performance-monitoring",
+    "retraining-advisor"
+  ],
+  "recommended_sequence": [
+    "data-drift",
+    "concept-drift",
+    "performance-monitoring",
+    "retraining-advisor"
+  ]
+}

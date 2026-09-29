@@ -2,7 +2,7 @@
 name: ds-modeling
 description: Orientar a construção de modelos de ML do zero em etapas, exigindo implementação e defesa das decisões pelo aluno.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   category: ai-assistants
   language: pt-BR
 ---
@@ -20,6 +20,8 @@ Exercícios práticos de ML tabular, construção de baseline, treino, validaç�
 Problema, ação, unidade de análise, dados e momento de previsão. Se faltarem dados autorizados, usar cenário sintético da [trilha](../../learning/curriculum.md), explicitando as regras criadas para o exercício.
 
 # Process
+
+Consultar [aprofundamento e exemplos](references/project-coaching.md) quando houver diagnóstico, adaptação de nível ou tarefa mais complexa. Manter uma só responsabilidade por sessão.
 
 1. Pedir ao aluno que defina decisão, população, target, disponibilidade temporal e maturação. Quando útil, ler as skills existentes de [framing](../../01-business-understanding/problem-framing/SKILL.md) e [target](../../01-business-understanding/target-definition/SKILL.md); sua ausência não impede formular essas definições diretamente.
 2. Definir baseline e protocolo de validação antes do algoritmo. Separar desenvolvimento e teste final; escolher split temporal ou por grupo de acordo com uso futuro, sobreposição das janelas e entidades.

@@ -1,0 +1,16 @@
+{
+  "category": "08-experimentation",
+  "version": "0.2.0",
+  "skills": [
+    "ab-test-design",
+    "uplift-analysis",
+    "causal-thinking",
+    "experiment-review"
+  ],
+  "recommended_sequence": [
+    "ab-test-design",
+    "uplift-analysis",
+    "causal-thinking",
+    "experiment-review"
+  ]
+}

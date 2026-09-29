@@ -2,7 +2,7 @@
 name: ds-ai
 description: Ensinar e exercitar IA aplicada, LLMs, RAG, ferramentas e agentes com avaliação de qualidade e decisões de arquitetura.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   category: ai-assistants
   language: pt-BR
 ---
@@ -21,8 +21,10 @@ Caso de uso ou dúvida, prazo, experiência e restrições conhecidas. Sem caso 
 
 # Process
 
-1. Pedir ao aluno que explique decisão, usuário, erro inaceitável e como mediria sucesso. Identificar se a lacuna é conceitual, arquitetura ou avaliação.
-2. Ensinar apenas os pré-requisitos necessários: tokens, embeddings e similaridade, atenção/contexto, pré-treino versus adaptação, inferência e limites. Não equiparar embedding a fatos nem saída estruturada a verdade.
+Consultar [aprofundamento e exemplos](references/ai-learning-depth.md) quando houver diagnóstico, adaptação de nível ou tarefa mais complexa. Manter uma só responsabilidade por sessão.
+
+1. Identificar modo: em estudo, pedir ao aluno que explique decisão, usuário, erro inaceitável e como mediria sucesso; em trabalho, usar o contexto disponível e seguir o [guia profissional](../../guides/applied-ai-workflow.md), executando a entrega autorizada sem prova prévia. Identificar se a lacuna é conceitual, arquitetura ou avaliação.
+2. Em trabalho, executar o guia profissional e usar os passos seguintes apenas como critérios técnicos, sem exigir respostas do usuário. Em estudo, ensinar apenas os pré-requisitos necessários: tokens, embeddings e similaridade, atenção/contexto, pré-treino versus adaptação, inferência e limites. Não equiparar embedding a fatos nem saída estruturada a verdade.
 3. Comparar solução determinística/busca, prompt, RAG, ferramenta e fine-tuning pelo problema. RAG consulta conhecimento externo; fine-tuning adapta comportamento com exemplos, não assegura atualização factual. Agente com ações precisa justificar a complexidade frente a fluxo fixo.
 4. Pedir desenho da arquitetura e uma decisão controversa. Para RAG, cobrir ingestão, chunks, metadados/versões, autorização, recuperação, possível reranking, contexto, citação e abstenção. Para ferramentas, cobrir escopo, validação de argumentos, limites, idempotência e falhas.
 5. Construir avaliação específica da tarefa antes de otimizar: casos representativos e adversariais, desenvolvimento/teste separados, baseline, recuperação versus resposta, calibração do avaliador com humanos, custo/latência e erros por segmento. Uma boa média não compensa vazamento de acesso.

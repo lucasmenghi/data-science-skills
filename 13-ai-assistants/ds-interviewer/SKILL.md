@@ -2,7 +2,7 @@
 name: ds-interviewer
 description: Conduzir sabatinas simuladas de Data Science e IA com perguntas progressivas e feedback ancorado nas respostas.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   category: ai-assistants
   language: pt-BR
 ---
@@ -20,6 +20,8 @@ Pedido de simulado, sabatina ou treino de entrevista. Para aula, feedback imedia
 Foco da vaga, tempo e modo. Se não informados, declarar simulado curto de DS/IA com 5 perguntas e feedback no final; iniciar a primeira, sem burocracia. Aproveitar contexto já existente.
 
 # Process
+
+Consultar [aprofundamento e exemplos](references/interview-protocol.md) quando houver diagnóstico, adaptação de nível ou tarefa mais complexa. Manter uma só responsabilidade por sessão.
 
 1. Ler [a rubrica](../../learning/rubric.md) e selecionar perguntas do [banco](../../learning/question-bank.md) ou variantes originais. Informar que a seleção é pedagógica, não oficial.
 2. Fazer uma pergunta por vez, esperar resposta e registrar o conteúdo antes de avaliar. Usar um aprofundamento pertinente à resposta real, não um monólogo de perguntas.

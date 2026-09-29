@@ -1,0 +1,16 @@
+{
+  "category": "09-deployment",
+  "version": "0.2.0",
+  "skills": [
+    "mlflow-registration",
+    "model-versioning",
+    "serving-readiness",
+    "deployment-checklist"
+  ],
+  "recommended_sequence": [
+    "mlflow-registration",
+    "model-versioning",
+    "serving-readiness",
+    "deployment-checklist"
+  ]
+}

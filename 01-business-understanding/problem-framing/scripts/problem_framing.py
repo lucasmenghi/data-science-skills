@@ -14,15 +14,18 @@ REQUIRED_FIELDS = [
 ]
 
 def validate_context(data: dict) -> dict:
-    missing = [field for field in REQUIRED_FIELDS if not data.get(field)]
+    if not isinstance(data, dict):
+        raise ValueError("Context must be a JSON object")
+    missing = [field for field in REQUIRED_FIELDS if not data.get(field) or isinstance(data[field], str) and not data[field].strip()]
     completeness = round((len(REQUIRED_FIELDS) - len(missing)) / len(REQUIRED_FIELDS), 2)
     return {
         "is_complete": len(missing) == 0,
         "completeness_score": completeness,
-        "missing_fields": missing
+        "missing_fields": missing,
+        "scope": "Field presence only; not semantic correctness or stakeholder approval"
     }
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(
         description="Validate the minimum context required for problem framing."
     )

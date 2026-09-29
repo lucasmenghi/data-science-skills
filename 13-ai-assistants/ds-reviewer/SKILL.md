@@ -2,7 +2,7 @@
 name: ds-reviewer
 description: Revisar projetos e respostas de Data Science ou IA para encontrar falhas de método e preparar uma defesa técnica baseada em evidências.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   category: ai-assistants
   language: pt-BR
 ---
@@ -20,6 +20,8 @@ Revisão de código, notebook, arquitetura, relatório ou relato de projeto. Nã
 Artefato ou descrição disponível, propósito e participação pessoal do aluno. Pedir só o trecho indispensável ausente; preferir dados sintéticos ou descrição sem informação confidencial.
 
 # Process
+
+Consultar [aprofundamento e exemplos](references/defense-review.md) quando houver diagnóstico, adaptação de nível ou tarefa mais complexa. Manter uma só responsabilidade por sessão.
 
 1. Distinguir fatos observados no artefato, relato do aluno e hipóteses ainda não verificadas. Identificar decisão e restrições.
 2. Para ML, procurar disponibilidade temporal, joins/duplicação, maturação do alvo, preparação dentro dos folds, baseline, seleção versus teste e métrica alinhada à ação. Para IA, verificar autorização, recuperação/geração, avaliação separada, injeção, custo, latência e fallback.

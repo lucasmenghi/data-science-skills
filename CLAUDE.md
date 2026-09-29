@@ -6,7 +6,7 @@ This file provides guidance to Claude Code when working with code and documentat
 
 `data-science-skills` is a modular library of reusable Data Science skill definitions for AI coding assistants.
 
-The repository is organized around the complete Data Science lifecycle, from business understanding to monitoring, business impact, documentation, and future AI assistants.
+The repository is organized around the complete Data Science lifecycle, from business understanding to monitoring, business impact, documentation, and AI assistants.
 
 Skills are Markdown-based instruction packages. A skill may also include deterministic Python utilities, methodological references, reusable output templates, and realistic examples.
 
@@ -19,18 +19,18 @@ The target architecture contains 13 categories:
 | # | Category | Status |
 |---|---|---|
 | 01 | business-understanding | Implemented |
-| 02 | data-discovery | Planned |
-| 03 | data-preparation | Planned |
-| 04 | feature-engineering | Planned |
-| 05 | model-development | Planned |
-| 06 | model-validation | Planned |
-| 07 | model-interpretability | Planned |
-| 08 | experimentation | Planned |
-| 09 | deployment | Planned |
-| 10 | monitoring | Planned |
-| 11 | business-impact | Planned |
-| 12 | documentation | Planned |
-| 13 | ai-assistants | Implemented: 7 learning roles |
+| 02 | data-discovery | Implemented |
+| 03 | data-preparation | Implemented |
+| 04 | feature-engineering | Implemented |
+| 05 | model-development | Implemented |
+| 06 | model-validation | Implemented |
+| 07 | model-interpretability | Implemented |
+| 08 | experimentation | Implemented |
+| 09 | deployment | Implemented |
+| 10 | monitoring | Implemented |
+| 11 | business-impact | Implemented |
+| 12 | documentation | Implemented |
+| 13 | ai-assistants | Implemented: 5 work coordinators + 7 learning roles |
 
 Do not invent missing categories or claim that planned skills already exist. When expanding the repository, preserve compatibility with the existing category and skill contracts.
 
@@ -121,9 +121,10 @@ Every `SKILL.md` must contain valid YAML frontmatter:
 ---
 name: skill-name
 description: One-line description of what the skill does and when it is relevant.
-version: 0.1.0
-category: category-name
-language: pt-BR
+metadata:
+  version: "0.2.0"
+  category: category-name
+  language: pt-BR
 ---
 ```
 
@@ -190,7 +191,7 @@ Scripts are optional. Add a script only when it provides deterministic value.
 - Use UTF-8 encoding explicitly for file I/O.
 - Prefer standard library, `pandas`, and `numpy` for the initial repository version.
 - Do not add a dependency merely to perform a trivial calculation.
-- Never implement a statistical method manually when a future category explicitly permits a reliable established library; document the dependency decision instead.
+- Never implement a statistical method manually when the category explicitly permits a reliable established library; document the dependency decision instead.
 - Scripts must not contain company-specific credentials, paths, catalogs, schemas, tokens, or production identifiers.
 
 ### Input and output
@@ -222,7 +223,7 @@ python 01-business-understanding/problem-framing/scripts/problem_framing.py \
 - Prefer concise definitions, decision rules, anti-patterns, and examples.
 - Clearly distinguish prediction, association, and causality.
 - Avoid presenting arbitrary thresholds as universal standards.
-- Cite external sources in a future references bibliography when substantive external material is introduced.
+- Cite external sources in the references bibliography when substantive external material is introduced.
 
 ## Examples
 
@@ -325,3 +326,7 @@ Use `problem-framing` as the primary structural exemplar and `target-definition`
 ## Learning and interview preparation
 
 Use `13-ai-assistants/ds-mentor/SKILL.md` to coordinate study, then load only the relevant specialist. Read `learning/START-HERE.md` for the workflow. Personal context and evidence belong in ignored `private/` files. Never infer an assessment from self-description or represent the program as an official company rubric.
+
+## Professional work
+
+Use `13-ai-assistants/ds-workbench/SKILL.md` for end-to-end work and the exact thematic skill for narrow tasks. Follow `guides/decision-protocol.md` and `guides/python-sql-databricks.md`. There are 68 canonical skills covering all 13 categories. Keep teaching mode separate: do not quiz the user before doing requested professional work. Do not load private learning records for unrelated work.

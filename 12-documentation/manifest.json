@@ -1,0 +1,16 @@
+{
+  "category": "12-documentation",
+  "version": "0.2.0",
+  "skills": [
+    "model-card",
+    "technical-report",
+    "executive-summary",
+    "readme-generator"
+  ],
+  "recommended_sequence": [
+    "model-card",
+    "technical-report",
+    "executive-summary",
+    "readme-generator"
+  ]
+}

@@ -1,112 +1,76 @@
 ---
 name: problem-framing
-description: Transform a vague business request into a structured data science problem.
-version: 0.1.0
-category: business-understanding
-language: pt-BR
+description: Transformar uma demanda de negócio em decisão analítica, comparando regra, análise, experimento e ML.
+metadata:
+  version: "0.2.0"
+  category: business-understanding
+  language: pt-BR
 ---
 
 # Purpose
 
-Transformar uma necessidade de negócio ainda vaga em uma definição estruturada e acionável de problema de Data Science.
+Transformar uma demanda de negócio em decisão analítica, comparando regra, análise, experimento e ML.
 
 # When to use
 
-- No início de um novo projeto de Data Science.
-- Quando a solicitação do stakeholder estiver ampla, ambígua ou orientada diretamente a uma solução.
-- Quando ainda não estiver claro qual decisão será apoiada pelo modelo.
-- Antes de definir target, população, horizonte temporal ou métricas técnicas.
+Quando a tarefa requer esta decisão dentro de entendimento do negócio. Trabalhar no escopo solicitado e entregar resultado utilizável; não transformar uma demanda de trabalho em sabatina. No modo explicativo, mostrar o porquê das escolhas junto do resultado.
 
 # Inputs
 
-- Descrição inicial do problema ou oportunidade.
-- Stakeholders envolvidos.
-- Decisão ou ação que o resultado deverá apoiar.
-- Processo de negócio relacionado.
-- Restrições conhecidas de prazo, custo, dados, compliance ou operação.
+Demanda; decisor; ação possível; população; restrições e situação atual.
+
+Usar o contexto já fornecido. Se faltar dado que altera materialmente a decisão, perguntar de forma focada; continuar a análise independente com premissas marcadas. Sem dados acessíveis, entregar desenho e verificações propostas, nunca resultados simulados como observados.
 
 # Process
 
-1. Reformular a solicitação em linguagem de negócio, evitando assumir que Machine Learning é necessariamente a solução.
-2. Identificar a decisão que deverá ser tomada com base na análise ou modelo.
-3. Definir a unidade de análise e a população potencialmente afetada.
-4. Identificar o evento, comportamento ou resultado que se deseja prever, estimar, recomendar ou otimizar.
-5. Definir o momento da decisão e o horizonte temporal relevante.
-6. Mapear ações possíveis após a geração do resultado.
-7. Definir critérios de sucesso de negócio e critérios mínimos de viabilidade.
-8. Registrar riscos, dependências, premissas e perguntas ainda abertas.
-9. Recomendar o tipo de problema analítico mais aderente: classificação, regressão, ranking, clusterização, previsão temporal, causalidade, otimização ou análise descritiva.
+1. Reformular o pedido como decisão: quem decide o quê, quando e com qual alternativa atual. Uma solicitação de algoritmo não define o problema.
+2. Separar indicador observado, objetivo e mecanismo pelo qual a ação poderia alterar o resultado. Localizar custo de não agir e custo de agir errado.
+3. Definir unidade, população elegível, momento de decisão e horizonte. Distinguir cliente, contrato e evento; listar exclusões que mudam a população.
+4. Comparar análise descritiva, regra, predição, experimento e otimização pela informação necessária e ação suportada. Escolher a opção mínima que responde à decisão.
+5. Elaborar escopo, critérios de sucesso e perguntas bloqueadoras. Confirmar definições com o responsável sem declarar aprovação que não ocorreu.
+6. Explicar ao usuário a decisão, a alternativa descartada e a evidência que mudaria a recomendação. Registrar o que foi executado, o que é hipótese e o próximo passo verificável.
+
+Consultar [critérios e trade-offs](references/decision-guide.md) para comparar alternativas e [caso trabalhado](examples/worked-case.md) para a profundidade esperada. Ler somente o apoio relevante, não todo o catálogo.
 
 # Output contract
 
-A resposta final deve ser estruturada com as seguintes seções:
+Mapa da decisão; alternativas; escopo e não escopo; premissas; proposta de avaliação.
 
-- `Executive Context`
-- `Business Objective`
-- `Decision to Support`
-- `Unit of Analysis`
-- `Population`
-- `Analytical Problem`
-- `Prediction or Decision Moment`
-- `Time Horizon`
-- `Available Actions`
-- `Business Success Criteria`
-- `Constraints`
-- `Risks`
-- `Assumptions`
-- `Open Questions`
-- `Recommended Analytical Approach`
-
-Quando uma informação não estiver disponível:
-
-1. declare explicitamente a lacuna;
-2. registre uma premissa temporária quando for seguro;
-3. não invente regras de negócio;
-4. destaque o impacto da incerteza na recomendação.
+Organizar a resposta em `Decisão recomendada`, `Evidências e execução`, `Alternativas e critérios`, `Limitações` e `Próximo passo`. Adaptar o tamanho à tarefa. Para cada achado relevante, explicar o significado e a consequência prática; anexar consultas/código ou localização de evidências quando houver. Números devem trazer unidade, população e período. Não esconder pendências em uma conclusão definitiva.
 
 # Common mistakes
 
-- Começar escolhendo algoritmo antes de entender a decisão de negócio.
-- Confundir o objetivo empresarial com a métrica técnica do modelo.
-- Assumir que todo problema precisa de Machine Learning.
-- Não identificar quem utilizará o resultado e qual ação será tomada.
-- Definir o problema sem considerar horizonte temporal ou momento da previsão.
-- Ignorar restrições operacionais, regulatórias ou de capacidade.
+Confundir desempenho preditivo com mudança de negócio; deixar população e ação implícitas.
+
+Um resultado útil pode ser concluir que um dashboard ou ajuste de processo atende melhor. Exigir decisão documentada, não a presença de ML.
 
 # Quality checklist
 
-- [ ] O objetivo de negócio está explícito.
-- [ ] A decisão apoiada está definida.
-- [ ] A unidade de análise está identificada.
-- [ ] A população está delimitada.
-- [ ] O momento da decisão está definido.
-- [ ] O horizonte temporal está definido.
-- [ ] As ações possíveis estão documentadas.
-- [ ] O sucesso de negócio está mensurável.
-- [ ] Riscos e premissas estão registrados.
-- [ ] A abordagem analítica recomendada está justificada.
+- [ ] Entradas, unidade e população necessárias estão definidas ou marcadas como pendentes.
+- [ ] A decisão segue os critérios específicos da referência e explicita a alternativa principal.
+- [ ] Evidência observada, hipótese e execução proposta estão separadas.
+- [ ] O caso-limite relevante foi verificado ou consta como limitação.
+- [ ] O próximo passo tem condição de conclusão verificável.
 
 # Tool usage
 
-- Use os scripts da pasta `scripts/` apenas para validações determinísticas ou cálculos auxiliares.
-- Use os arquivos em `references/` para interpretar conceitos, critérios e exemplos.
-- Use os templates em `assets/` para produzir saídas consistentes.
-- Não trate um template como regra de negócio definitiva.
+Preferir Python e SQL; usar [orientações de ambiente](../../guides/python-sql-databricks.md) para adaptar a Databricks/PySpark sem coletar grandes tabelas no driver. Inspecionar schema e versões reais antes de gerar código dependente de APIs. Consultar [fontes primárias](../../guides/sources.md) quando o método ou a API exigir verificação. Executar apenas dentro do escopo e acesso disponíveis; relatar comandos e resultados reais. Um exemplo sintético não comprova resultado no dataset do usuário.
 
 # Boundaries
 
-Esta skill não deve:
-
-- treinar modelos;
-- selecionar algoritmos de forma definitiva sem contexto;
-- executar engenharia de features;
-- substituir validação do stakeholder;
-- assumir que Machine Learning é obrigatoriamente a melhor solução.
+Não inventar regras, dados, resultados, significância ou aprovação. Não ampliar o pedido para mutações externas, publicação ou deployment sem autorização correspondente. Não usar exemplos como política obrigatória. Explicação descritiva/preditiva não estabelece causalidade.
 
 # Example invocation
 
-```text
-Use a skill `problem-framing` para estruturar esta solicitação:
+"Use $problem-framing no meu projeto. Explique os critérios de decisão, proponha ou execute as verificações possíveis e separe resultados de premissas."
 
-[descreva aqui o problema ou contexto]
-```
+## Recursos específicos
+
+- [analytical-problem-types.md](references/analytical-problem-types.md): recurso específico já existente; consultar quando necessário.
+- [problem-framing-template.md](assets/problem-framing-template.md): recurso específico já existente; consultar quando necessário.
+- [churn-example.md](examples/churn-example.md): recurso específico já existente; consultar quando necessário.
+- [problem_framing.py](scripts/problem_framing.py): recurso específico já existente; consultar quando necessário.
+
+## Apoio transversal
+
+Para decisões que exigem justificativa estatística ou operacional, consultar o trecho relevante do [aprofundamento metodológico](../../guides/method-depth.md). Para organizar evidências e comunicar a recomendação, usar o [protocolo de decisão](../../guides/decision-protocol.md). Não carregar ambos por obrigação em tarefas simples.

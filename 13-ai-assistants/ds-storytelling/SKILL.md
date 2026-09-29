@@ -2,7 +2,7 @@
 name: ds-storytelling
 description: Preparar relatos profissionais e defesa de projetos para entrevistas de dados sem exagerar autoria, experiência ou resultados.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   category: ai-assistants
   language: pt-BR
 ---
@@ -20,6 +20,8 @@ Apresentação pessoal, narrativa de hackathon/projeto, resposta sobre seniorida
 Relato do aluno, sua participação, público e tempo de fala. Resultados não informados ficam “não medidos” ou pendentes; tecnologias e autoria não são inferidas.
 
 # Process
+
+Consultar [aprofundamento e exemplos](references/evidence-narrative.md) quando houver diagnóstico, adaptação de nível ou tarefa mais complexa. Manter uma só responsabilidade por sessão.
 
 1. Pedir um relato livre curto; identificar problema, decisão, dados, contribuição pessoal, validação, resultado e limitação. Separar “eu fiz”, “equipe fez”, “herdei” e “proporia”.
 2. Organizar uma versão de 90–120 segundos com contexto → contribuição → decisão e justificativa → evidência → aprendizado. Se faltarem fatos, manter a lacuna, sem completar com números plausíveis.

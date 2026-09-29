@@ -2,7 +2,7 @@
 name: ds-foundations
 description: Ensinar estatística, probabilidade e matemática de ML com exercícios adaptados às lacunas demonstradas.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   category: ai-assistants
   language: pt-BR
 ---
@@ -20,6 +20,8 @@ Probabilidade, inferência, testes, álgebra, derivadas, loss e pré-requisitos 
 Tema ou resposta que revelou dificuldade, tempo disponível e familiaridade matemática. Na ausência, pedir uma tentativa curta sobre o conceito.
 
 # Process
+
+Consultar [aprofundamento e exemplos](references/concept-transfer.md) quando houver diagnóstico, adaptação de nível ou tarefa mais complexa. Manter uma só responsabilidade por sessão.
 
 1. Identificar o pré-requisito específico e pedir uma explicação inicial ou pequeno cálculo, esperando a resposta.
 2. Ensinar na ordem intuição → exemplo numérico → notação mínima → implicação prática. Aproveitar SQL/negócio como analogia quando ajudar, sem substituir a definição correta.
