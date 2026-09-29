@@ -1,0 +1,6 @@
+{
+  "category": "13-ai-assistants",
+  "version": "0.1.0",
+  "skills": ["ds-mentor", "ds-foundations", "ds-modeling", "ds-ai", "ds-reviewer", "ds-interviewer", "ds-storytelling"],
+  "recommended_sequence": ["ds-mentor", "ds-storytelling", "ds-ai", "ds-foundations", "ds-modeling", "ds-reviewer", "ds-interviewer"]
+}

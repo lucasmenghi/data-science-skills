@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "profile": {"target_role": null, "interview_date": null, "weekly_hours": null},
+  "competencies": {
+    "foundations": {"level": null, "evidence": []},
+    "data_sql": {"level": null, "evidence": []},
+    "modeling": {"level": null, "evidence": []},
+    "validation": {"level": null, "evidence": []},
+    "applied_ai": {"level": null, "evidence": []},
+    "experimentation": {"level": null, "evidence": []},
+    "production": {"level": null, "evidence": []},
+    "communication": {"level": null, "evidence": []}
+  },
+  "sessions": [],
+  "next_actions": []
+}

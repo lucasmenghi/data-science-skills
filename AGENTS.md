@@ -26,7 +26,11 @@ The planned lifecycle contains 13 categories:
 12. `12-documentation`
 13. `13-ai-assistants`
 
-Only `01-business-understanding` is currently implemented. Do not claim planned categories or skills already exist.
+Implemented categories: `01-business-understanding` (4 skills) and `13-ai-assistants` (7 learning agents). Other lifecycle categories remain planned. Do not claim planned categories or skills already exist.
+
+## Learning sessions
+
+For study, interview preparation or mentoring requests, read `13-ai-assistants/ds-mentor/SKILL.md` and only the specialist needed. Read `private/profile.md` and `private/progress.json` if present. For repository editing, follow the development workflow below. Never publish personal learning records. Skills are roles, not proof that background agents are running.
 
 ## Implemented Business Understanding skills
 
@@ -74,6 +78,8 @@ category: category-name
 language: pt-BR
 ---
 ```
+
+For new Codex-compatible skills, `version`, `category`, and `language` may instead be nested under `metadata` (string values). Existing top-level metadata stays supported. Discovery entries in `.agents/skills/` are generated pointers and are exempt from the category section contract; their canonical targets must satisfy it.
 
 Required sections:
 

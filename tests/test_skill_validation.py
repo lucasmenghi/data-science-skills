@@ -1,0 +1,61 @@
+"""Behavioral smoke checks for malformed repositories and generated entry safety."""
+from __future__ import annotations
+
+import json
+import tempfile
+import unittest
+from pathlib import Path
+
+from scripts.build_codex_entries import build_entries
+from validate_skills import SECTIONS, validate
+
+
+class ValidationTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        category = self.root / "13-ai-assistants"
+        skill = category / "ds-example"
+        skill.mkdir(parents=True)
+        (category / "README.md").write_text("Example", encoding="utf-8")
+        (category / "manifest.json").write_text(json.dumps({"category": category.name, "skills": [skill.name]}), encoding="utf-8")
+        self.skill = skill / "SKILL.md"
+        body = "\n".join(f"# {s}\n" + ("1. Step\n" if s == "Process" else "- [ ] Check\n" if s == "Quality checklist" else "Text\n") for s in SECTIONS)
+        self.skill.write_text("---\nname: ds-example\ndescription: Example validation skill.\nmetadata:\n  version: '0.1.0'\n  category: ai-assistants\n  language: pt-BR\n---\n" + body, encoding="utf-8")
+        build_entries(self.root)
+
+    def test_valid_and_idempotent(self) -> None:
+        self.assertEqual(validate(self.root), [])
+        self.assertEqual(build_entries(self.root), [])
+
+    def test_missing_skill_is_rejected(self) -> None:
+        self.skill.unlink()
+        self.assertTrue(any("SKILL.md" in e for e in validate(self.root)))
+
+    def test_broken_reference_is_rejected(self) -> None:
+        with self.skill.open("a", encoding="utf-8") as stream:
+            stream.write("\n[missing](references/absent.md)\n")
+        self.assertTrue(any("broken local link" in e for e in validate(self.root)))
+
+    def test_invalid_yaml_is_rejected(self) -> None:
+        self.skill.write_text("---\nname: [broken\n---\n", encoding="utf-8")
+        self.assertTrue(validate(self.root))
+
+    def test_unrelated_entry_is_preserved(self) -> None:
+        target = self.root / ".agents/skills/ds-example/SKILL.md"
+        target.write_text("User-owned instructions", encoding="utf-8")
+        with self.assertRaises(ValueError):
+            build_entries(self.root)
+        self.assertEqual(target.read_text(encoding="utf-8"), "User-owned instructions")
+
+    def test_missing_section_and_invalid_asset(self) -> None:
+        self.skill.write_text(self.skill.read_text(encoding="utf-8").replace("# Boundaries", "# Other"), encoding="utf-8")
+        (self.skill.parent / "invalid.json").write_text("{bad", encoding="utf-8")
+        errors = validate(self.root)
+        self.assertTrue(any("Boundaries" in e for e in errors))
+        self.assertTrue(any("invalid.json" in e for e in errors))
+
+
+if __name__ == "__main__":
+    unittest.main()

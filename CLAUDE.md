@@ -30,7 +30,7 @@ The target architecture contains 13 categories:
 | 10 | monitoring | Planned |
 | 11 | business-impact | Planned |
 | 12 | documentation | Planned |
-| 13 | ai-assistants | Planned |
+| 13 | ai-assistants | Implemented: 7 learning roles |
 
 Do not invent missing categories or claim that planned skills already exist. When expanding the repository, preserve compatibility with the existing category and skill contracts.
 
@@ -127,7 +127,9 @@ language: pt-BR
 ---
 ```
 
-Every skill must contain these sections:
+New Codex-compatible skills may nest `version`, `category`, and `language` under `metadata` as strings. Existing top-level fields remain valid. Generated discovery pointers under `.agents/skills/` use the canonical category skill contract through their target.
+
+Every canonical skill must contain these sections:
 
 ```markdown
 # Purpose
@@ -319,3 +321,7 @@ For Business Understanding work, inspect in this order:
 4. `01-business-understanding/success-criteria-definition/`
 
 Use `problem-framing` as the primary structural exemplar and `target-definition` as the primary temporal-reasoning exemplar.
+
+## Learning and interview preparation
+
+Use `13-ai-assistants/ds-mentor/SKILL.md` to coordinate study, then load only the relevant specialist. Read `learning/START-HERE.md` for the workflow. Personal context and evidence belong in ignored `private/` files. Never infer an assessment from self-description or represent the program as an official company rubric.

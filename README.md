@@ -1,189 +1,46 @@
-# 🧠 Data Science Skills
+# Data Science Skills
 
-> A modular library of reusable AI skills designed to standardize, accelerate and improve the entire Data Science lifecycle.
+Biblioteca de métodos de Data Science e agentes de aprendizagem em português. O objetivo é apoiar decisões de projeto e desenvolver competência demonstrável em ciência de dados e IA.
 
-<p align="center">
+**Preparando uma entrevista? [Comece aqui](learning/START-HERE.md).** Há uma [trilha de 24–72 horas](learning/emergency-plan.md) e uma [formação por competências](learning/curriculum.md).
 
-![Status](https://img.shields.io/badge/status-under%20development-blue)
-![Python](https://img.shields.io/badge/python-3.10+-3776AB?logo=python)
-![License](https://img.shields.io/badge/license-MIT-success)
-![AI](https://img.shields.io/badge/AI-Claude%20%7C%20Genie%20Code-orange)
+## O que existe
 
-</p>
+| Categoria | Implementado |
+|---|---|
+| [01-business-understanding](01-business-understanding/README.md) | Framing, target, hipóteses e critérios de sucesso |
+| [13-ai-assistants](13-ai-assistants/README.md) | Mentor, fundamentos, modelagem, IA aplicada, revisor, entrevistador e comunicação |
 
----
+São 11 skills canônicas. As categorias 02 a 12 continuam planejadas; não são funcionalidades disponíveis.
 
-## 🚀 Overview
+## Usar os agentes
 
-**Data Science Skills** is an open framework that encapsulates best practices from modern Data Science into reusable, composable AI skills.
+Abra este repositório no Codex e envie:
 
-Instead of relying on isolated prompts, the project provides structured knowledge modules that guide AI assistants through every stage of a Data Science initiative — from business understanding to production monitoring.
-
-Each skill follows a standardized architecture composed of:
-
-- 📄 Behavioral instructions
-- 📚 Reference materials
-- 🧩 Output templates
-- 🐍 Utility scripts
-- 💡 Practical examples
-
-The result is an extensible foundation for building consistent, high-quality AI-assisted Data Science workflows.
-
----
-
-# 🎯 Vision
-
-The goal is to transform AI from a code generator into a **Senior Data Scientist** capable of reasoning through an entire project.
-
-Instead of asking:
-
-> "Generate a Random Forest"
-
-the assistant should be capable of understanding:
-
-- What is the business problem?
-- Is Machine Learning really necessary?
-- What is the correct prediction moment?
-- Is there target leakage?
-- Which features make sense?
-- Which metric reflects business success?
-- Can this model actually be deployed?
-
----
-
-# 🏗 Project Architecture
-
-```
-data-science-skills/
-
-├── 01-business-understanding
-├── 02-data-discovery
-├── 03-data-preparation
-├── 04-feature-engineering
-├── 05-model-development
-├── 06-model-validation
-├── 07-model-interpretability
-├── 08-experimentation
-├── 09-deployment
-├── 10-monitoring
-├── 11-business-impact
-├── 12-documentation
-└── 13-ai-assistants
+```text
+Use $ds-mentor. Quero me preparar para uma entrevista de Data Science com foco em IA.
+Comece pelo diagnóstico, uma pergunta por vez, e espere minha resposta.
 ```
 
-Each category contains independent and reusable skills.
+Se a descoberta automática não estiver disponível, peça para ler `13-ai-assistants/ds-mentor/SKILL.md`. As instruções também podem ser lidas por outros assistentes com acesso aos arquivos; não houve teste de integração com cada produto.
 
----
+Os agentes são skills que orientam papéis na conversa. Não há um serviço de agentes rodando em segundo plano. O material funciona sem contratar APIs adicionais. Para usar fora desta pasta, mantenha o repositório completo e seus links relativos.
 
-# 📦 Skill Architecture
+## Como o estudo funciona
 
-Every skill follows exactly the same structure.
+Diagnóstico por respostas → prioridade conforme prazo → exercício → feedback → nova tentativa independente → registro local. Notas sem evidência ficam como não avaliadas. O programa distingue domínio conceitual, aplicação, julgamento e comunicação, sem prometer aprovação ou atribuir senioridade por uma média.
 
+Os PDFs fornecidos orientaram o [mapa de fontes](learning/sources.md); os originais não são redistribuídos. Há correções metodológicas e complementos para IA aplicada. Este projeto não é material oficial de recrutamento de nenhuma empresa.
+
+## Estrutura e contribuição
+
+Veja [STRUCTURE.md](STRUCTURE.md), [AGENTS.md](AGENTS.md) e [CLAUDE.md](CLAUDE.md). Preserve as skills existentes e mantenha as referências verificáveis.
+
+```sh
+python -m pip install -r requirements-dev.txt
+python scripts/build_codex_entries.py
+python validate_skills.py
+python -m unittest discover -s tests -v
 ```
-skill-name/
 
-├── SKILL.md
-├── assets/
-├── references/
-├── scripts/
-└── examples/
-```
-
-### SKILL.md
-
-Defines:
-
-- purpose
-- when to use
-- inputs
-- reasoning process
-- output contract
-- quality checklist
-- common mistakes
-- boundaries
-
----
-
-### assets/
-
-Reusable templates.
-
-Examples:
-
-- Model Cards
-- Executive Summaries
-- Business Documents
-- Markdown Reports
-
----
-
-### references/
-
-Methodological knowledge.
-
-Examples:
-
-- CRISP-DM
-- Target Leakage
-- SHAP
-- MLflow
-- Business Metrics
-- Experiment Design
-
----
-
-### scripts/
-
-Deterministic utilities.
-
-Examples:
-
-- temporal window calculators
-- validation scripts
-- metric calculators
-- quality validators
-
----
-
-### examples/
-
-Realistic examples demonstrating how the skill should be used.
-
----
-
-# 🤖 AI Compatibility
-
-The project is designed to work with multiple AI coding assistants.
-
-| Assistant | Status |
-|------------|--------|
-| Claude Code | ✅ |
-| Genie Code | ✅ |
-
----
-
-# 🛣 Roadmap
-
-- [x] Business Understanding
-- [ ] Data Discovery
-- [ ] Data Preparation
-- [ ] Feature Engineering
-- [ ] Model Development
-- [ ] Model Validation
-- [ ] Interpretability
-- [ ] Experimentation
-- [ ] Deployment
-- [ ] Monitoring
-- [ ] Business Impact
-- [ ] Documentation
-- [ ] AI Workflows
-
----
-
-# ⭐ Why this project?
-
-Modern AI tools can generate code.
-
-This project teaches them **how experienced Data Scientists think**.
-
-Rather than replacing analytical reasoning, it aims to standardize and augment it through reusable knowledge modules.
+As entradas `.agents/skills/` são geradas; as instruções canônicas ficam nas categorias. `private/` guarda contexto e sessões pessoais e é ignorada pelo Git. Não inclua dados de clientes, credenciais ou materiais de terceiros sem autorização.
