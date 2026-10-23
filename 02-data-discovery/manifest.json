@@ -1,0 +1,20 @@
+{
+  "category": "02-data-discovery",
+  "version": "0.2.0",
+  "skills": [
+    "dataset-profiler",
+    "schema-mapper",
+    "granularity-check",
+    "data-quality-audit",
+    "relationship-mapper",
+    "exploratory-analysis"
+  ],
+  "recommended_sequence": [
+    "dataset-profiler",
+    "schema-mapper",
+    "granularity-check",
+    "data-quality-audit",
+    "relationship-mapper",
+    "exploratory-analysis"
+  ]
+}

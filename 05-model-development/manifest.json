@@ -1,0 +1,18 @@
+{
+  "category": "05-model-development",
+  "version": "0.2.0",
+  "skills": [
+    "algorithm-selection",
+    "baseline-builder",
+    "hyperparameter-planner",
+    "imbalance-strategy",
+    "cross-validation-planner"
+  ],
+  "recommended_sequence": [
+    "algorithm-selection",
+    "baseline-builder",
+    "hyperparameter-planner",
+    "imbalance-strategy",
+    "cross-validation-planner"
+  ]
+}

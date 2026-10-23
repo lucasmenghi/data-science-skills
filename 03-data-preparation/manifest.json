@@ -1,0 +1,18 @@
+{
+  "category": "03-data-preparation",
+  "version": "0.2.0",
+  "skills": [
+    "missing-value-strategy",
+    "outlier-investigation",
+    "leakage-check",
+    "temporal-validation",
+    "feature-ready-validation"
+  ],
+  "recommended_sequence": [
+    "missing-value-strategy",
+    "outlier-investigation",
+    "leakage-check",
+    "temporal-validation",
+    "feature-ready-validation"
+  ]
+}

@@ -1,0 +1,3 @@
+id,hypothesis,mechanism,observable_signals,data_sources,test,type,impact,evidence,effort,priority
+H001,Clientes com queda recente de frequência apresentam maior risco de churn,Redução de engajamento antecede abandono,frequency_30d_vs_90d,transactions,Compare churn rate by frequency trend,Predictive,5,4,2,
+H002,Contatos repetidos no suporte aumentam o risco de churn,Fricção não resolvida reduz satisfação,support_contacts_30d,support_tickets,Compare matched groups,Predictive,4,3,3,

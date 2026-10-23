@@ -1,0 +1,20 @@
+{
+  "category": "04-feature-engineering",
+  "version": "0.2.0",
+  "skills": [
+    "feature-brainstorm",
+    "feature-selection",
+    "categorical-encoding",
+    "temporal-features",
+    "aggregation-features",
+    "interaction-features"
+  ],
+  "recommended_sequence": [
+    "feature-brainstorm",
+    "feature-selection",
+    "categorical-encoding",
+    "temporal-features",
+    "aggregation-features",
+    "interaction-features"
+  ]
+}

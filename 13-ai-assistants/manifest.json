@@ -1,0 +1,18 @@
+{
+    "category":  "13-ai-assistants",
+    "version":  "0.2.0",
+    "skills":  [
+                   "ds-workbench",
+                   "eda-assistant",
+                   "feature-engineering-assistant",
+                   "ml-reviewer",
+                   "business-translator"
+               ],
+    "recommended_sequence":  [
+                                 "ds-workbench",
+                                 "eda-assistant",
+                                 "feature-engineering-assistant",
+                                 "ml-reviewer",
+                                 "business-translator"
+                             ]
+}
